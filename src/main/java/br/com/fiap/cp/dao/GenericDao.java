@@ -9,7 +9,7 @@ public interface GenericDao<T, K> {
 	
 	List<T> findAll();
 	
-	T findById(K id) throws NoSuchElementException ;
+	T findById(K id) throws NoSuchElementException;
 	
 	T save(T entidade);
 	

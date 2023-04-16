@@ -14,15 +14,11 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
-@Data
 @Builder
 @Table(name = "tb_product")
 @SequenceGenerator(name="prd", sequenceName = "SQ_TB_PRODUCT", allocationSize = 1)
@@ -58,5 +54,64 @@ public class Product {
     
     @ManyToMany(mappedBy = "products", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     private List<Order> orders;
+
+	public Product(Long id, String name, String description, Double pricePerUnit, List<Category> categories,
+			List<Order> orders) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.pricePerUnit = pricePerUnit;
+		this.categories = categories;
+		this.orders = orders;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Double getPricePerUnit() {
+		return pricePerUnit;
+	}
+
+	public void setPricePerUnit(Double pricePerUnit) {
+		this.pricePerUnit = pricePerUnit;
+	}
+
+	public List<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
 
 }
