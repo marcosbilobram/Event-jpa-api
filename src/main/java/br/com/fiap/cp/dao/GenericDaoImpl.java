@@ -10,9 +10,9 @@ import jakarta.persistence.TypedQuery;
 
 public abstract class GenericDaoImpl<T, K> implements GenericDao<T, K> {
 
-	private EntityManager em;
+	private final EntityManager em;
 
-	private Class<T> clss;
+	private final Class<T> clss;
 
 	@SuppressWarnings("all")
 	public GenericDaoImpl(EntityManager em) {
