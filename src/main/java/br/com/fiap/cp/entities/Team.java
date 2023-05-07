@@ -17,7 +17,11 @@ public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "team")
     private Long id;
+
+    @Column(name = "team_name", nullable = false)
     private String nome;
+
+    @Column(name = "team_desc", length = 50)
     private String descricao;
 
     @OneToMany(mappedBy = "team")

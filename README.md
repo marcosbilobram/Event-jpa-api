@@ -1,1 +1,1 @@
-# simple-market-jpa-api
+# Event-JPA-API

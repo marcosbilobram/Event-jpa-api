@@ -20,10 +20,15 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "event")
     private Long id;
+
+    @Column(name = "Event_name", nullable = false)
     private String nome;
+
+    @Column(name = "event_place", nullable = false)
     private String local;
 
     @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "event_data", nullable = false)
     private Date data;
 
     @OneToOne(mappedBy = "event", optional = false, cascade = CascadeType.ALL)

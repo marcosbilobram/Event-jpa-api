@@ -1,8 +1,6 @@
 package br.com.fiap.cp.entities;
 
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,11 +8,15 @@ import lombok.Data;
 @AllArgsConstructor
 @Data
 @Builder
-@Table(name = "tb_address")
-@SequenceGenerator(name="ads", sequenceName = "SQ_TB_ADDRESS", allocationSize = 1)
+@Table(name = "tb_organizer")
+@SequenceGenerator(name="org", sequenceName = "SQ_TB_ORGANIZER", allocationSize = 1)
 public class Organizer {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "org")
     private Long id;
+
+    @Column(name = "organizer_name", nullable = false, length = 30)
     private String nome;
 
     @OneToOne(mappedBy = "organizer")

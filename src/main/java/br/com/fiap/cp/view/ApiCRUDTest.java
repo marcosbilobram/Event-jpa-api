@@ -1,6 +1,5 @@
 package br.com.fiap.cp.view;
 
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.NoSuchElementException;
@@ -14,7 +13,7 @@ import br.com.fiap.cp.exceptions.CommitErrorException;
 import br.com.fiap.cp.singleton.EntityManagerFactorySingleton;
 import jakarta.persistence.EntityManager;
 
-public class ProductTest {
+public class ApiCRUDTest {
 	
 public static void main(String[] args) {
 		
@@ -25,7 +24,7 @@ public static void main(String[] args) {
 		EventDao eventDao = new EventDaoImpl(em);
 		OrganizerDao organizerDao = new OrganizerDaoImpl(em);
 
-		Team team = new Team(1L, "Banana", "fruta nham nham", null, null);
+		Team team = new Team(1L, "OSCABA", "SOMOS OS CABA", null, null);
 
 		Participant part = new Participant("Junim", "junio@hotmai.com", "99999999");
 
@@ -98,14 +97,7 @@ public static void main(String[] args) {
 		catch (NoSuchElementException e) {
 			System.out.println(e.getMessage());
 		}
-		
-		try {
-			//productDao.deleteById(1);
-			//productDao.commit();
-			//System.out.println("Produto removido");
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
+
 	}
 	
 }

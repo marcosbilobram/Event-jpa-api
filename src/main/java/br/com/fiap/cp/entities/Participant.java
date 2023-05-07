@@ -15,8 +15,14 @@ public class Participant {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "prtc")
     private Long id;
+
+    @Column(name = "participant_name", length = 30, nullable = false)
     private String nome;
+
+    @Column(name = "participant_email", nullable = false, unique = true)
     private String email;
+
+    @Column(name = "participant_tel", length = 12)
     private String telefone;
 
     @OneToOne(mappedBy = "participantes")
